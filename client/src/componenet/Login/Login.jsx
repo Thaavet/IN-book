@@ -25,8 +25,7 @@ const Login = () => {
       });
 
       if (response.status === 200) {
-        const token = response.data.token;
-        response.cookie('access_token', token);
+        const token = response.data.cookie;
         response.data.isAdmin === true ? navigate('/dashboard') : navigate('/books');
         setIsAdmin(response.data.isAdmin);
         toast.success('Login successful');

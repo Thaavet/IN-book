@@ -15,10 +15,7 @@ const Navbar = ({isAdmin}) => {
 
 
   <div className="right-nav">
-    <Link className="nav-link" to="/books">Our Books</Link>
-    
     <Link className="nav-link" to="/login">Login</Link> 
-    
     {isAdmin ===true &&
     <Link className="nav-link" to="/dashboard">Dashboard</Link>}
     <Link className="nav-link" to="/register">Become a Reader</Link>
