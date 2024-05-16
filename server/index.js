@@ -22,6 +22,10 @@ mongoose.connect(process.env.MONGODB_URL
 ).then(() => console.log('DB connected'))
 ;
 
+
+app.use ('/', res => {
+  res.send("Hello World")
+})
 app.use('/api/v1/auth', authRoutes);
 app.use('/api/v1/users', userRoutes);
 app.use('/api/v1/books', bookRoutes);
