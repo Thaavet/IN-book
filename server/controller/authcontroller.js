@@ -2,7 +2,6 @@ import User from "../mongodb/models/User.js";
 
 import jwt from "jsonwebtoken";
 
-import bcrypt from "bcrypt";
 
 
 
@@ -12,12 +11,12 @@ import bcrypt from "bcrypt";
 
 export const register = async (req, res, next) => {
   try {
-    const salt = await bcrypt.genSalt(10);
-    const hash = await bcrypt.hash(req.body.password, salt);
+    
 
     const newUser = new User({
       ...req.body,
-      password: hash,
+      isAdmin: false
+      ,
     });
 
     await newUser.save();
@@ -31,10 +30,9 @@ export const login = async (req, res, next) => {
     const user = await User.findOne({ username: req.body.username });
     if (!user) return next(res.status(404, "User not found!"));
 
-    const isPasswordCorrect = await bcrypt.compare(
-      req.body.password,
-      user.password
-    );
+    const isPasswordCorrect = 
+    password === user.password;
+  
     if (!isPasswordCorrect)
     return next("Wrong Password");
 
