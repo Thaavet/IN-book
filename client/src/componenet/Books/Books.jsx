@@ -20,7 +20,7 @@ const Books = () => {
   const [categoryFilter, setCategoryFilter] = useState('');
 
   useEffect(() => {
-    axios.get('http://localhost:3000/api/v1/books')
+    axios.get('https://in-book.onrender.com/api/v1/books')
       .then((res) => {
         setBooks(res.data);
         console.log(res.data);

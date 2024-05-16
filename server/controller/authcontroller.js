@@ -1,22 +1,11 @@
 import User from "../mongodb/models/User.js";
-
 import jwt from "jsonwebtoken";
-
-
-
-
-
-
-
 
 export const register = async (req, res, next) => {
   try {
-    
-
     const newUser = new User({
       ...req.body,
-      isAdmin: false
-      ,
+      isAdmin: false,
     });
 
     await newUser.save();
@@ -25,16 +14,15 @@ export const register = async (req, res, next) => {
     next(err);
   }
 };
+
 export const login = async (req, res, next) => {
   try {
     const user = await User.findOne({ username: req.body.username });
     if (!user) return next(res.status(404, "User not found!"));
 
-    const isPasswordCorrect = 
-    password === user.password;
-  
-    if (!isPasswordCorrect)
-    return next("Wrong Password");
+    const isPasswordCorrect = req.body.password === user.password;
+
+    if (!isPasswordCorrect) return next("Wrong Password");
 
     const token = jwt.sign(
       { id: user._id, isAdmin: user.isAdmin },
@@ -52,5 +40,3 @@ export const login = async (req, res, next) => {
     next(err);
   }
 };
-
-
