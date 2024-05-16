@@ -6,6 +6,8 @@ import bcrypt from "bcrypt";
 
 
 
+
+
 export const register = async (req, res, next) => {
   try {
     const salt = await bcrypt.genSalt(10);
@@ -50,3 +52,5 @@ export const login = async (req, res, next) => {
     next(err);
   }
 };
+
+
