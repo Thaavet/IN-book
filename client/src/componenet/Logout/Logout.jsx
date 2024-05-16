@@ -15,24 +15,21 @@ const Logout = () => {
           },
         };
 
-        await axios.post("http://localhost:3000/api/v1/auth/logout", null, config);
+        await axios.post("https://in-book.onrender.com/api/v1/auth/logout", null, config);
 
-        // Clear the token from local storage
         localStorage.removeItem("access_token");
 
-        // Redirect to the login page or perform any other necessary actions
-        // ...
         navigate('/');
       } catch (error) {
         console.error('Logout failed:', error);
-        // Handle the logout error
+   
       }
     };
 
     logoutUser();
   }, [navigate]);
 
-  return null; // Return null or another component if needed
+  return null; 
 };
 
 export default Logout;

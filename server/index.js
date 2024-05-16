@@ -12,11 +12,13 @@ dotenv.config();
 const app = express();
 app.use(cookieParser());
 app.use(express.json());
-app.use(cors({
-  origin: 'https://insuperbooks.netlify.app/',
-  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
-}));
+
+app.use(
+  cors({
+    origin: ["https://insuperbooks.netlify.app"],
+    credentials: true,
+  })
+);
 
 mongoose.connect(process.env.MONGODB_URL
 ).then(() => console.log('DB connected'))
