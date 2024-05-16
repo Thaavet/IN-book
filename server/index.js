@@ -23,7 +23,7 @@ mongoose.connect(process.env.MONGODB_URL
 ;
 
 
-app.use ('/', res => {
+app.get('/', res => {
   res.send("Hello World")
 })
 app.use('/api/v1/auth', authRoutes);
@@ -34,7 +34,7 @@ app.use('/api/v1/books', bookRoutes);
 
 
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT;
 
 app.listen(port, () => {
   console.log(`Server started on port ${port}`);
