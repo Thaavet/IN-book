@@ -16,7 +16,7 @@ const Register = () => {
 
   const registerUser = async (e) => {
     e.preventDefault();
-    const { username, email, password } = data; // Remove confirmPassword
+    const { username, email, password } = data; 
     try {
       const response = await axios.post('https://in-book.onrender.com/api/v1/auth/register', {
         username,
