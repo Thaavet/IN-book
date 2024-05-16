@@ -5,7 +5,7 @@ export const register = async (req, res, next) => {
   try {
     const newUser = new User({
       ...req.body,
-      isAdmin: false,
+      password: req.body.password,
     });
 
     await newUser.save();
