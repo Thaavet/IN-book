@@ -1,14 +1,2 @@
-#ignore node modules
-node_modules
-
-#ignore API key
+node_modules/
 .env
-
-#ignore server node modules
-/server/node_modules
-
-#ignore client node modules
-/client/node_modules
-
-#ignore server env
-/server/.env
