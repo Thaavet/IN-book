@@ -1,7 +1,6 @@
 
 import {BrowserRouter, Router, Routes, Route, Link} from 'react-router-dom'
 import { useState } from 'react'
-import './App.css'
 import {Toaster} from 'react-hot-toast'
 import Navbar from './componenet/Navbar/Navbar.jsx'
 import Home from './componenet/Home/Home.jsx'

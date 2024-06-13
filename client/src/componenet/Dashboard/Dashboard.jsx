@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { API_DOMAIN } from '../../constants/constants';
+const apiDomain = API_DOMAIN
 
 function Dashboard() {
   const [books, setBooks] = useState([]);
@@ -16,9 +18,11 @@ function Dashboard() {
     fetchBooks();
   }, []);
 
+
+
   const fetchBooks = async () => {
     try {
-      const res = await axios.get('http://localhost:3000/api/v1/books');
+      const res = await axios.get('${apiDomain}/books');
       setBooks(res.data);
     } catch (err) {
       console.error(err);
@@ -38,7 +42,7 @@ function Dashboard() {
 
   const handleBookCreate = async () => {
     try {
-      const res = await axios.post('http://localhost:3000/api/v1/books', newBook);
+      const res = await axios.post('${apiDomain)/books', newBook);
       setBooks([...books, res.data]);
       setNewBook({
         _id: '',
@@ -56,7 +60,7 @@ function Dashboard() {
 
   const handleBookUpdate = async () => {
     try {
-      await axios.put(`http://localhost:3000/api/v1/books/${selectedBook._id}`, newBook);
+      await axios.put(`'${apiDomain}/books/${selectedBook._id}`, newBook);
       setBooks(
         books.map((book) =>
           book._id === selectedBook._id ? { ...book, ...newBook } : book
@@ -78,7 +82,7 @@ function Dashboard() {
 
   const handleBookDelete = async () => {
     try {
-      await axios.delete(`http://localhost:3000/api/v1/books/${selectedBook._id}`);
+      await axios.delete(`${apiDomain}/books/${selectedBook._id}`);
       setBooks(books.filter((book) => book._id !== selectedBook._id));
       setSelectedBook(null);
     } catch (err) {

@@ -5,6 +5,8 @@ import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import './register.css';
 import InLogo from '../../assets/INlogo.png';
+import { API_DOMAIN } from '../../constants/constants';
+const apiDomain = API_DOMAIN
 
 const Register = () => {
   const navigate = useNavigate();
@@ -18,7 +20,7 @@ const Register = () => {
     e.preventDefault();
     const { username, email, password } = data; 
     try {
-      const response = await axios.post('https://in-book.onrender.com/api/v1/auth/register', {
+      const response = await axios.post('${apiDomain}/auth/register', {
         username,
         email,
         password

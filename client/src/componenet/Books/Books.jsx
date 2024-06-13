@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './books.css';
+import { API_DOMAIN } from '../../constants/constants.js';
+
+const apiDomain = API_DOMAIN;
 
 const BookDetails = ({ book, onClose }) => {
   return (
@@ -20,32 +23,35 @@ const Books = () => {
   const [categoryFilter, setCategoryFilter] = useState('');
 
   useEffect(() => {
-    axios.get('https://in-book.onrender.com/api/v1/books')
-      .then((res) => {
-        setBooks(res.data);
-        console.log(res.data);
+    axios.get(`${apiDomain}/books`)
+     .then((res) => {
+        if (Array.isArray(res.data)) {
+          setBooks(res.data);
+        } else {
+          console.error('API response is not an array:', res.data);
+        }
       })
-      .catch((err) => {
+     .catch((err) => {
         console.log(err);
       });
   }, []);
 
   const handleInfoClick = (book) => {
     if (selectedBook === book) {
-      setSelectedBook(null); // Deselect the book if clicked again
+      setSelectedBook(null); 
     } else {
-      setSelectedBook(book); // Select the clicked book
+      setSelectedBook(book);
     }
   };
 
   const applyFilters = (book) => {
-    if (authorFilter && !book.author.toLowerCase().includes(authorFilter.toLowerCase())) {
+    if (authorFilter &&!book.author.toLowerCase().includes(authorFilter.toLowerCase())) {
       return false;
     }
-    if (titleFilter && !book.title.toLowerCase().includes(titleFilter.toLowerCase())) {
+    if (titleFilter &&!book.title.toLowerCase().includes(titleFilter.toLowerCase())) {
       return false;
     }
-    if (categoryFilter && book.category.toLowerCase() !== categoryFilter.toLowerCase()) {
+    if (categoryFilter && book.category.toLowerCase()!== categoryFilter.toLowerCase()) {
       return false;
     }
     return true;
