@@ -34,6 +34,3 @@ Open index.html sign uo or login  and you will be looking at the searchbar in th
 Davide Finocchio
 
 https://github.com/Thaavet
-
-Open Library API 
-https://openlibrary.org/developers/api
