@@ -1,8 +1,39 @@
-# React + Vite
+**INSUPER BOOK**
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+--------------------------------------------------------------------------------------------------
 
-Currently, two official plugins are available:
+**Getting Started**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Hi everyone, this is a project made for the Fullstak Development Master for Start2Impact.
+
+I made an app for Insuperabili's HQ.  a fluid and responsive app, for those who  want to browse the existing catalogue or manage it (Login/Sign up required)
+
+
+**Built with**
+
+- Javascript
+- Html
+- CSS
+- React
+- Node.js
+- MongoDB
+- Express
+- Jwt
+- Bcrypt
+
+--------------------------------------------------------------------------------------------------
+
+**Usage**
+
+Open index.html sign uo or login  and you will be looking at the searchbar in the top of the web page, in this area you can write the title of the book you're looking for.
+
+--------------------------------------------------------------------------------------------------
+
+**Contact**
+
+Davide Finocchio
+
+https://github.com/Thaavet
+
+Open Library API 
+https://openlibrary.org/developers/api
