@@ -22,7 +22,7 @@ function Dashboard() {
 
   const fetchBooks = async () => {
     try {
-      const res = await axios.get('${apiDomain}/books');
+      const res = await axios.get(`${apiDomain}/books`);
       setBooks(res.data);
     } catch (err) {
       console.error(err);
@@ -42,7 +42,7 @@ function Dashboard() {
 
   const handleBookCreate = async () => {
     try {
-      const res = await axios.post('${apiDomain)/books', newBook);
+      const res = await axios.post(`${apiDomain}/books`, newBook);
       setBooks([...books, res.data]);
       setNewBook({
         _id: '',
@@ -60,7 +60,7 @@ function Dashboard() {
 
   const handleBookUpdate = async () => {
     try {
-      await axios.put(`'${apiDomain}/books/${selectedBook._id}`, newBook);
+      await axios.put(`${apiDomain}/books/${selectedBook._id}`, newBook);
       setBooks(
         books.map((book) =>
           book._id === selectedBook._id ? { ...book, ...newBook } : book
